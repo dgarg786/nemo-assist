@@ -1,6 +1,6 @@
 {
-  "name": "nemo-helper",
-  "version": "1.0.0",
+  "name": "nemo-assist",
+  "version": "0.0.5beta",
   "description": "Gives basic component level utilities over nemo",
   "main": "./dist/index.js",
   "scripts": {
@@ -24,6 +24,7 @@
     "eslint-config-consumerweb": "^5.0.0",
     "eslint-plugin-consumerweb": "^1.12.0",
     "eslint-plugin-import": "^2.12.0",
-    "eslint-plugin-react": "^7.9.1"
+    "eslint-plugin-react": "^7.9.1",
+    "minami": "^1.2.3"
   }
 }
