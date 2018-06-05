@@ -25,9 +25,11 @@ function normalizedLocator(nemo, locator) {
  * @param {object|string} componentLocator a DOM locator that can be either location of nemo-view locator in LOCATOR folder eg: 'policy.spinner'<br>
  *                           OR can be direct locator object eg: { "type": "css", "locator": "div.hasSpinner"}  OR <br>
  *                           OR can be locator string eg 'xpath://*[@name = "documentType"]'
+ * @param {number} waitTime waitTime in milliseconds by default it's 3000
  * @returns {Function}
  */
-function waitTillVanish(nemo, componentLocator) {
+function waitTillVanish(nemo, componentLocator, waitTime) {
+    waitTime = waitTime || _.get(nemo, 'data.waitTime', 3000);
     return function () {
         const locator = normalizedLocator(nemo, componentLocator);
         return nemo.driver.wait(function() {
@@ -38,11 +40,11 @@ function waitTillVanish(nemo, componentLocator) {
                     }
                     return false;
                 });
-        }, 30000, `${componentLocator} wait failed`);
+        }, waitTime, `${componentLocator} wait failed`);
     };
 }
 
 module.exports = {
     normalizedLocator: normalizedLocator,
-    waitTillPresent: waitTillPresent
+    waitTillPresent: waitTillVanish
 };

@@ -1,5 +1,6 @@
-import {reject} from '../promiseHandler';
-import {normalizedLocator} from '../common';
+import { reject } from '../promiseHandler';
+import { normalizedLocator } from '../common';
+import _ from 'lodash';
 import q from 'q';
 
 
@@ -20,15 +21,17 @@ import q from 'q';
                                                either location of locator in LOCATOR folder eg: 'policy.spinner'<br>
                                                OR can be direct locator object eg: { "type": "css", "locator": "div.hasSpinner"}<br>
                                                OR can be locator string eg 'xpath://*[@name = "documentType"]'
+ * @param {number} waitTime waitTime in milliseconds by default it's 3000
  * @returns {Function} function wrapped around Promise
  */
-export default function docUpload(nemo, filePath, dropzoneWaitLocator, dropzoneFileInputLocator, uploadSuccessLocator) {
+export default function docUpload(nemo, filePath, dropzoneWaitLocator, dropzoneFileInputLocator, uploadSuccessLocator, waitTime) {
+    waitTime = waitTime || _.get(nemo, 'data.waitTime', 3000);
     return function () {
         var defer = q.defer();
         const waitLocator = normalizedLocator(nemo, dropzoneWaitLocator);
         const fileInputLocator = normalizedLocator(nemo, dropzoneFileInputLocator);
         const successLocator = normalizedLocator(nemo, uploadSuccessLocator);
-        return nemo.view._waitVisible(waitLocator, 1500000)
+        return nemo.view._waitVisible(waitLocator, waitTime)
             .then(function () {
                 if (nemo.data.env !== 'development') {
                     var remote = require('selenium-webdriver/remote');
@@ -39,7 +42,7 @@ export default function docUpload(nemo, filePath, dropzoneWaitLocator, dropzoneF
                         aa.sendKeys(path.join(filePath));
                     })
                     .then(function () {
-                        return nemo.view._waitVisible(successLocator, 30000);
+                        return nemo.view._waitVisible(successLocator, waitTime);
                     }, reject(defer, 'fileUploadSuccess'));
             }, reject(defer, 'dropzoneWait'));
     };
