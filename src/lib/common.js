@@ -46,5 +46,5 @@ function waitTillVanish(nemo, componentLocator, waitTime) {
 
 module.exports = {
     normalizedLocator: normalizedLocator,
-    waitTillPresent: waitTillVanish
+    waitTillVanish: waitTillVanish
 };
