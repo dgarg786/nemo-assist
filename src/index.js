@@ -1,1 +1,1 @@
-module.exports = require('./lib/nemo-helper');
+module.exports = require('./lib/nemo-assist');

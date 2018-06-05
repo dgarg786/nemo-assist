@@ -1,6 +1,6 @@
 {
   "name": "nemo-helper",
-  "version": "1.0.0",
+  "version": "1.0.0beta",
   "description": "Gives basic component level utilities over nemo",
   "main": "./dist/index.js",
   "scripts": {
