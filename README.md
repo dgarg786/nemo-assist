@@ -13,8 +13,7 @@ For time being, to include use :
 npm install nemo-assist@beta
 ```
 
-
-
+## Supported Utils
 For now it supports following utilities:
 
 [DocUpload](https://github.paypal.com/pages/deegarg/nemo-assist/global.html#DocUpload)
@@ -24,8 +23,8 @@ For now it supports following utilities:
 ,[textInputEnter](https://github.paypal.com/pages/deegarg/nemo-assist/global.html#textInputEnter)
 ,[waitTillVanish](https://github.paypal.com/pages/deegarg/nemo-assist/global.html#waitTillVanish)
 
-
-please find the detailed documentation [here](https://github.paypal.com/pages/deegarg/nemo-assist).
+## Documentation
+Find the detailed documentation [here](https://github.paypal.com/pages/deegarg/nemo-assist).
 
 ## Examples
 To see examples of it's usage please refer the following [gitcomparision](https://github.paypal.com/Customers-R/compliancedashboardweb/compare/develop...deegarg:nemo-assistexample) with both earlier code without utilities and with utilities.  
