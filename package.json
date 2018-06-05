@@ -1,11 +1,12 @@
 {
   "name": "nemo-assist",
-  "version": "0.0.5beta",
+  "version": "0.0.6beta",
   "description": "Gives basic component level utilities over nemo",
   "main": "./dist/index.js",
   "scripts": {
     "prepublish": "npm run compile",
-    "compile": "babel src --out-dir dist --presets es2015 --copy-files"
+    "compile": "babel src --out-dir dist --presets es2015 --copy-files",
+    "publishDocs": "jsdoc --readme README.md --package package.json -t ./node_modules/minami/ -r src"
   },
   "repository": {
     "type": "git",
