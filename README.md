@@ -27,7 +27,7 @@ For now it supports following utilities:
 
 please find the detailed documentation [here](https://github.paypal.com/pages/deegarg/nemo-assist).
 
-##Examples
+## Examples
 To see examples of it's usage please refer the following [gitcomparision](https://github.paypal.com/Customers-R/compliancedashboardweb/compare/develop...deegarg:nemo-assistexample) with both earlier code without utilities and with utilities.  
 It shows how utilities help in removing ~70% of the code redundancy.
 
