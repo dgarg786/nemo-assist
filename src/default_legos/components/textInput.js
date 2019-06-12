@@ -14,7 +14,7 @@ import _ from 'lodash';
  * @param {number} waitTime waitTime in milliseconds by default it's 20000
  * @returns {Function}
  */
-export default function textInputEnter(nemo, optionToEnter, textInputLocator, waitTime) {
+export default function textInputEnter({ nemo, optionToEnter, textInputLocator, waitTime } = {}) {
     waitTime = waitTime || _.get(nemo, 'data.waitTime', 20000);
     return function () {
         const locator = normalizedLocator(nemo, textInputLocator);

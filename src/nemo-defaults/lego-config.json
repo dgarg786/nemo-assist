@@ -1,0 +1,47 @@
+[
+  {
+    "name": "TextInput",
+    "executor": "textInputEnter",
+    "params": {
+      "optionToEnter": "",
+      "textInputLocator":"",
+      "waitTime": ""
+    }
+  },
+  {
+    "name": "SelectDropDown",
+    "executor": "selectDropdownOption",
+    "params": {
+      "optionToSelect": "",
+      "dropDownLocator": "",
+      "isKepler": "",
+      "waitTime": ""
+    }
+  },
+  {
+    "name": "ElementClick",
+    "executor": "elementClick",
+    "params": {
+      "elementLocator": "",
+      "preCondition": "",
+      "waitTime":""
+    }
+  },
+  {
+    "name": "WaitVisible",
+    "executor": "waitVisible",
+    "params": {
+      "elementLocator": "",
+      "preCondition": "",
+      "waitTime":""
+    }
+  },
+  {
+    "name": "goToUrl",
+    "executor": "goToUrl",
+    "params": {
+      "url": ""
+    }
+
+  }
+]

@@ -3,7 +3,6 @@ import { normalizedLocator } from '../common';
 import q from 'q';
 import _ from 'lodash';
 
-
 /**
  * @method elementClick
  * @description returns a promise function which waits for the element and then trigger it's click
@@ -15,18 +14,23 @@ import _ from 'lodash';
  * @param {number} waitTime waitTime in milliseconds by default it's 20000
  * @returns {Function}
  */
-export default function elementClick (nemo, elementLocator, preCondition, waitTime) {
-    preCondition = (arguments.length >= 3) ? preCondition : true;
-    waitTime = waitTime || _.get(nemo, 'data.waitTime', 20000);
-    return function () {
-        const locator = normalizedLocator(nemo, elementLocator);
-        var defer = q.defer();
-        if (!preCondition) {
-            return resolve(defer)();
-        }
-        return nemo.view._waitVisible(locator, waitTime)
-            .then(function () {
-                return nemo.view._find(locator).click();
-            }, reject(defer, `click failed ${elementLocator}`));
-    };
+export default function elementClick({ nemo, elementLocator, preCondition, waitTime } = {}) {
+  preCondition = !(preCondition === false);
+  waitTime = waitTime || _.get(nemo, 'data.waitTime', 20000);
+  return function() {
+    let locator;
+    try {
+      locator = normalizedLocator(nemo, elementLocator);
+    }
+    catch (ex) {
+      reject(defer, elementLocator);
+    }
+    var defer = q.defer();
+    if (!preCondition) {
+      return resolve(defer)();
+    }
+    return nemo.view._waitVisible(locator, waitTime).then(function() {
+      return nemo.view._find(locator).click();
+    }, reject(defer, `click failed ${elementLocator}`));
+  };
 }

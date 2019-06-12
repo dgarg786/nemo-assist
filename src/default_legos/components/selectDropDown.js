@@ -15,7 +15,7 @@ import _ from 'lodash';
  * @param {number} waitTime waitTime in milliseconds by default it's 20000
  * @returns {Function}
  */
-export default function selectDropdownOption(nemo, optionToSelect, dropDownLocator, isKepler, waitTime) {
+export default function selectDropdownOption({nemo, optionToSelect, dropDownLocator, isKepler, waitTime} = {}) {
     waitTime = waitTime || _.get(nemo, 'data.waitTime', 20000);
     return function () {
         const locator = normalizedLocator(nemo, dropDownLocator);

@@ -24,7 +24,7 @@ import q from 'q';
  * @param {number} waitTime waitTime in milliseconds by default it's 20000
  * @returns {Function} function wrapped around Promise
  */
-export default function docUpload(nemo, filePath, dropzoneWaitLocator, dropzoneFileInputLocator, uploadSuccessLocator, waitTime) {
+export default function docUpload({ nemo, filePath, dropzoneWaitLocator, dropzoneFileInputLocator, uploadSuccessLocator, waitTime } = {}) {
     waitTime = waitTime || _.get(nemo, 'data.waitTime', 20000);
     return function () {
         var defer = q.defer();

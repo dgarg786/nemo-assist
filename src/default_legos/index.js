@@ -2,7 +2,7 @@ import textInputEnter from './components/textInput';
 import selectDropdownOption from './components/selectDropDown';
 import elementClick from './components/elementClick';
 import documentUpload from './components/documentUpload';
-import { normalizedLocator, waitTillVanish } from './common';
+import { normalizedLocator, waitTillVanish, goToUrl, waitVisible } from './common';
 
 module.exports = {
     textInputEnter: textInputEnter,
@@ -10,5 +10,7 @@ module.exports = {
     elementClick: elementClick,
     documentUpload: documentUpload,
     normalizedLocator: normalizedLocator,
-    waitTillVanish: waitTillVanish
+    waitTillVanish: waitTillVanish,
+    waitVisible: waitVisible,
+    goToUrl: goToUrl
 };

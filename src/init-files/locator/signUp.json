@@ -1,0 +1,6 @@
+{
+  "signUpButton": {
+    "locator": "signup-button",
+    "type": "id"
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "type": "flow",
+  "name": "SignUpDeepanshu",
+  "workFlow": [
+    {
+      "type": "lego",
+      "name": "goToUrl",
+      "executor": "goToUrl",
+      "params": {
+        "url": "https://paypal.com/us"
+      }
+    },
+    {
+      "type": "block",
+      "name": "SignUpPage1",
+      "params": {
+        "First_Name##optionToEnter": "Deepanshu",
+        "LastName##optionToEnter": "Garg"
+      },
+      "workFlow": [
+        {
+          "type": "lego",
+          "name": "ElementClick",
+          "executor": "elementClick",
+          "label": "SignUp_button",
+          "params": {
+            "elementLocator": "signUp.signUpButton",
+            "preCondition": "",
+            "waitTime": ""
+          }
+        },
+        {
+          "type": "lego",
+          "name": "ElementClick",
+          "executor": "elementClick",
+          "label": "Personal_Account",
+          "params": {
+            "elementLocator": "css:#cta-btn",
+            "preCondition": "",
+            "waitTime": ""
+          }
+        },
+        {
+          "type": "lego",
+          "name": "TextInput",
+          "executor": "textInputEnter",
+          "label": "First_Name",
+          "params": {
+            "optionToEnter": "First Name",
+            "textInputLocator": "css:#paypalAccountData_firstName",
+            "waitTime": ""
+          }
+        },
+        {
+          "type": "lego",
+          "name": "TextInput",
+          "executor": "textInputEnter",
+          "label": "LastName",
+          "params": {
+            "optionToEnter": "Last Name",
+            "textInputLocator": "css:#paypalAccountData_lastName",
+            "waitTime": ""
+          }
+        },
+        {
+          "type": "lego",
+          "name": "TextInput",
+          "executor": "textInputEnter",
+          "label": "Email_Id",
+          "params": {
+            "optionToEnter": "_sys_@random12.com",
+            "textInputLocator": "css:#paypalAccountData_email",
+            "waitTime": ""
+          }
+        }
+      ]
+    }
+  ]
+}
