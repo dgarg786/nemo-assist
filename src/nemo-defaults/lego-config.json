@@ -37,6 +37,25 @@
     }
   },
   {
+    "name": "waitTillVanish",
+    "executor": "waitTillVanish",
+    "params": {
+      "elementLocator": "",
+      "waitTime":""
+    }
+  },
+  {
+    "name": "documentUpload",
+    "executor": "documentUpload",
+    "params": {
+      "filePath" : "",
+      "dropzoneWaitLocator":  "",
+      "dropzoneFileInputLocator": "",
+      "uploadSuccessLocator":  "",
+      "waitTime": ""
+    }
+  },
+  {
     "name": "goToUrl",
     "executor": "goToUrl",
     "params": {
