@@ -1,6 +1,6 @@
 {
   "name": "nemo-assist",
-  "version": "0.0.14beta",
+  "version": "0.0.15beta",
   "description": "Gives basic component level utilities over nemo",
   "scripts": {
     "prepublish": "npm run compile",

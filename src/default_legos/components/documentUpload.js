@@ -40,7 +40,7 @@ export default function docUpload({ nemo, filePath, dropzoneWaitLocator, dropzon
                 }
                 return nemo.view._find(fileInputLocator)
                     .then(function (aa) {
-                        aa.sendKeys(path.join(filePath));
+                        aa.sendKeys(path.join(process.cwd(),filePath));
                     })
                     .then(function () {
                         return nemo.view._waitVisible(successLocator, waitTime);
