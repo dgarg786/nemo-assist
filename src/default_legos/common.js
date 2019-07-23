@@ -29,10 +29,10 @@ function normalizedLocator(nemo, locator) {
  * @param {number} waitTime waitTime in milliseconds by default it's 20000
  * @returns {Function}
  */
-function waitTillVanish({ nemo, componentLocator, waitTime }) {
+function waitTillVanish({ nemo, elementLocator, waitTime }) {
   waitTime = waitTime || _.get(nemo, "data.waitTime", 20000);
   return function() {
-    const locator = normalizedLocator(nemo, componentLocator);
+    const locator = normalizedLocator(nemo, elementLocator);
     return nemo.driver.wait(
       function() {
         return nemo.view._finds(locator).then(function(elements) {
@@ -43,7 +43,7 @@ function waitTillVanish({ nemo, componentLocator, waitTime }) {
         });
       },
       waitTime,
-      `${componentLocator} wait failed`
+      `${elementLocator} wait failed`
     );
   };
 }

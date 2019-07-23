@@ -27,10 +27,11 @@ program
     .option('-f, --folderPath <path>', 'path of the base folder', '.')
     .option('-q, --queryString <querystring>', 'queryString matching the params')
     .option('-n, --flowName <flowName>', 'name of the flow')
-    .option('-n, --flowName <flowName>', 'name of the flow')
+    .option('-g, --grep <flowName>', 'grep flow name')
     .action(function(options) {
         process.env.nafolderPath =  path.resolve(process.cwd(), options.folderPath);
         process.env.naflowName = options.flowName;
+        process.env.Grep = options.grep;
         shell.exec(`${nemoPath} -C ${configFilePath} -P base`);
     });
 
@@ -61,16 +62,3 @@ program
 
 
 program.parse(process.argv);
-
-// if (program.scaffold) {
-//     console.log(program.scaffold);
-//     console.log(__dirname);
-//     console.log(process.cwd());
-// }
-//
-// console.log(process.argv);
-//
-// if(command) {
-//     console.log(command, "yehi");
-//     console.log(args, "yehi");
-// }

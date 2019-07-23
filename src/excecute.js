@@ -23,6 +23,8 @@ function executeLego(nemo, legoConfig = {}) {
             }
         });
 
+        console.log("Started Executing", legoConfig.label || legoConfig.name, ' for lego Type', legoConfig.executor);
+
         const legoExecutorList = { ...defaultLegoList, ...(configuredLegoList || {}) };
         return legoExecutorList[legoConfig.executor](extendedConfig)();
     };

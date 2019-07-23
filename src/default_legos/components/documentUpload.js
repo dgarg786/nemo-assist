@@ -2,6 +2,7 @@ import { reject } from '../promiseHandler';
 import { normalizedLocator } from '../common';
 import _ from 'lodash';
 import q from 'q';
+import path from 'path';
 
 
 /**

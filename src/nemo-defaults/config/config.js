@@ -2,6 +2,7 @@ const path = require('path');
 const fs = require('fs');
 const basePath = process.env.nafolderPath || '../example';
 const naflowName = process.env.naflowName;
+const grepFlow = process.env.Grep;
 const isEmpty = require('lodash/isEmpty');
 
 const flowsPath = path.resolve(basePath, 'flows');
@@ -30,8 +31,8 @@ const baseProfile = {
     'data': {},
     'mocha': {
         'timeout': 180000,
-        'reporter': 'mochawesome',
-        'retries': process.env.RETRIES || 2,
+        'reporter': 'xunit',
+        'retries': process.env.RETRIES || 0,
         'reporterOptions': {
             'output': true
         }
@@ -68,8 +69,12 @@ const regexMatch = (matchExp, val) => {
 };
 
 const flowFilter = (flowConfig) => {
-    if(naflowName) {
+    if(naflowName && naflowName !== 'undefined') {
         return regexMatch(naflowName, flowConfig.name);
+    }
+    if (grepFlow) {
+        let testRules = grepFlow.split(',').join('|');
+        return RegExp(testRules,'ig').test(flowConfig.name);
     }
 };
 
@@ -94,19 +99,11 @@ subDirs.forEach((subDir) => {
 
 let subFiles = dirContents.filter((cont)=> (fs.lstatSync(path.resolve(flowsPath, cont)).isFile()));
 
-console.log("subfiles", subFiles);
 subFiles.forEach((file)=> {
     const fileContents = readJsonFile(path.resolve(flowsPath, file));
-    console.log("subfiles1", fileContents);
-    console.log("subfiles2", naflowName);
     if(fileContents && flowFilter(fileContents)) {
         nemoRunnerConfig.profiles.base.data = { ...nemoRunnerConfig.profiles.base.data, [getFileName(file)]: fileContents};
     }
 });
-
-console.log(nemoRunnerConfig.profiles);
-
-
-console.log("yehi h ", nemoRunnerConfig);
 
 module.exports = nemoRunnerConfig;
