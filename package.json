@@ -1,6 +1,6 @@
 {
   "name": "nemo-assist",
-  "version": "0.0.15beta",
+  "version": "0.0.16beta",
   "description": "Gives basic component level utilities over nemo",
   "scripts": {
     "prepublish": "npm run compile",
@@ -16,6 +16,7 @@
     "babel-polyfill": "^6.26.0",
     "body-parser": "^1.19.0",
     "bootstrap": "^4.3.1",
+    "commander": "^2.20.0",
     "continuation-local-storage": "^3.2.1",
     "express": "^4.17.0",
     "lodash": "^4.17.11",
