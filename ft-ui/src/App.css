@@ -156,3 +156,59 @@ input{
   width: 100%;
 }
 
+.container-fluid {
+  background-color: rgb(18,18,18);
+}
+
+.home-new-options {
+  height: 10%;
+  justify-content: center;
+  color: white;
+}
+.home-welcome {
+  height: 45%;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.home-welcome-head {
+  margin: 50px 0;
+  font-family: Chalkboard;
+}
+
+.home-options-title {
+  font-family: Chalkboard;
+  border-radius: 50px;
+  background-color: rgb(30,30,30);
+  margin: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  width: 20%;
+}
+
+.home-options-title-link {
+  color: rgb(237,99,54);
+}
+
+.home-edit-options {
+  justify-content: center;
+  color: white;
+}
+
+.home-edit-options-title {
+  font-family: Chalkboard;
+  border-radius: 50px;
+  background-color: rgb(30,30,30);
+  margin: 15px;
+  border: 1px solid black;
+  width: 20%;
+}
+
+.search-container{
+  margin: 26px;
+  text-align: center;
+}

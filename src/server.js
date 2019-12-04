@@ -39,6 +39,10 @@ app.get('/edit/:structureType/:structureId', function(req, res) {
 });
 
 
+app.get('/create/:structureType', function(req, res) {
+    res.sendFile(path.join(__dirname, '../build', 'index.html'));
+});
+
 app.post('/run/ft', function(req, res) {
     fs.writeFileSync(path.resolve(__dirname, baseDirPath, 'flows/nemo-assist-test/test.json'), JSON.stringify(req.body));
 
@@ -68,6 +72,25 @@ app.get('/blocks', function(req, res) {
     });
     return res.status(200).end(JSON.stringify(blockFilesData));
 });
+
+
+app.get('/flows', function(req, res) {
+    let flowPath = path.resolve(__dirname, baseDirPath, 'flows');
+    let flowDirContents = fs.readdirSync(flowPath) || [];
+    let flowFiles = flowDirContents.filter(cont => fs.lstatSync(path.resolve(flowPath, cont)).isFile());
+    let flowFilesData = flowFiles.map(file => {
+        const fileContents = readJsonFile(path.resolve(flowPath, file));
+        if (fileContents) {
+            return fileContents;
+        }
+    });
+    return res.status(200).end(JSON.stringify(flowFilesData));
+});
+
+
+
+
+
 
 app.get('/legos', function(req, res) {
     let legoPath = path.resolve(__dirname, baseDirPath, 'legos');
